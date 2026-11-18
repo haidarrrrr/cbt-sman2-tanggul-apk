@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- =========================================================
+         PENGATURAN APLIKASI — CUKUP UBAH FILE INI
+         ========================================================= -->
+
+    <!-- WAJIB: alamat web CBT Anda (Blogger / hosting), diawali https:// -->
+    <string name="cbt_url" translatable="false">https://ops-sman2tanggul.blogspot.com/</string>
+
+    <!-- true = layar dikunci (screen pinning) selama ujian berlangsung -->
+    <bool name="kunci_layar_saat_ujian">true</bool>
+</resources>

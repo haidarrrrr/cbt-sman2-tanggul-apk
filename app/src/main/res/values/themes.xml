@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cbt_primary">#1D4ED8</color>
+    <color name="cbt_soft">#EFF6FF</color>
+    <color name="ic_launcher_background">#1D4ED8</color>
+
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/cbt_primary</item>
+        <item name="android:colorPrimaryDark">@color/cbt_primary</item>
+        <item name="android:colorAccent">@color/cbt_primary</item>
+        <item name="android:statusBarColor">@color/cbt_primary</item>
+        <item name="android:navigationBarColor">@color/cbt_primary</item>
+        <item name="android:windowBackground">@color/cbt_soft</item>
+    </style>
+</resources>

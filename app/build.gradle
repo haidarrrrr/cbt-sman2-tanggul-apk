@@ -1,0 +1,50 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Nomor build otomatis dari GitHub Actions (agar APK baru bisa dipasang menimpa versi lama)
+def runNumber = (System.getenv("GITHUB_RUN_NUMBER") ?: "1").toInteger()
+
+android {
+    namespace 'id.sch.sman2tanggul.cbt'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "id.sch.sman2tanggul.cbt"
+        minSdk 26          // Android 8.0 ke atas
+        targetSdk 34
+        versionCode runNumber
+        versionName "1.0." + runNumber
+    }
+
+    signingConfigs {
+        release {
+            // Default: keystore bawaan proyek. Opsional: timpa lewat GitHub Secrets (lihat README).
+            storeFile file(System.getenv("CBT_KEYSTORE") ?: "cbt-release.jks")
+            storePassword System.getenv("CBT_KEYSTORE_PASS") ?: "lLGcuCAe0QzcKwXfeN5m"
+            keyAlias System.getenv("CBT_KEY_ALIAS") ?: "cbt"
+            keyPassword System.getenv("CBT_KEY_PASS") ?: "lLGcuCAe0QzcKwXfeN5m"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
